@@ -1,0 +1,10 @@
+<p><input type="file"  name="image" id="file"  onchange="loadFile(event)" style="display: none;"></p>
+<p><label for="file" style="cursor: pointer;">Upload Image</label></p>
+<p><div id="output"></div></p>
+
+<script>
+var loadFile = function(event) {
+	var image = document.getElementById('output');
+	image.innerHTML = event.target.files
+};
+</script>

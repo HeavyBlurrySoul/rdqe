@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function table_to_array() {
+            myData = document.getElementsByTagName('table')[0].rows
+            console.log(myData)
+            my_liste = []
+            for (var i = 0; i < myData.length; i++) {
+                el = myData[i].children
+                my_el = []
+                for (var j = 0; j < el.length; j++) {
+                    my_el.push(el[j].innerText.split(" ").join("").replace(/\n/g, '').replace('.', ','));
+                    console.log(my_el)
+                }
+                my_liste.push(my_el)
+
+            }
+            console.log(my_liste)
+            let json = JSON.stringify(my_liste)
+            return json
+        }
+
+        function showDiv1() {
+            odiv2Value = document.getElementById('text').value;
+            odiv2Value = odiv2Value.replace(/(?:\r\n|\r|\n)/g, '<br>');
+            document.getElementById('odiv1').innerHTML = ""
+            document.getElementById('invis').innerHTML = odiv2Value;
+            return false;
+        }
+
+        async function uploadFile() {
+    let formData = new FormData();           
+    formData.append("file", fileupload.files[0]);
+    await fetch('/upload', {
+      method: "POST", 
+      body: formData
+    });    
+    alert('The file has been uploaded successfully.');
+}
+
+    </script>
+</head>
+
+<body>
+
+    <form name="form">
+        <div id="invis" style="display: none;"></div>
+        <div id="odiv1">
+            <p align="left"></p>
+            <div id="odiv2"><br>
+                <textarea id="text" name="text" cols="20" rows="5"></textarea>
+                </br>
+            </div>
+            <div id="odiv3"><br>
+                </br></div>
+            <input type="submit" id="btn" value="ok" onclick="return showDiv1();">
+        </div>
+
+    </form>
+
+    <form method="POST">
+        <div>
+            <label for="say"></label>
+            <textarea name="say" id="say" value="Hiiii"></textarea>
+        </div>
+        <div>
+            <label for="to">
+                <Who do you want to say it to?>
+            </label>
+            <input name="to" id="to" value="date">
+        </div>
+        <div>
+            <button onmouseenter="document.getElementById('say').value = table_to_array()">Send my greetings</button>
+        </div>
+    </form>
+    <br>
+
+</body>
+
+</html>
