@@ -50,54 +50,54 @@
         }
 
         html,
-        body {
-            height: 100%;
-            width: 100%;
-            background-color: #E5CB9F;
-        }
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #E5CB9F;
+}
 
-        .container {
-            align-items: center;
-            display: flex;
-            justify-content: center;
-            height: 100%;
-            width: 100%;
-        }
+.container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
     </style>
 </head>
 
 <body>
     <div class="container">
-        <div class="interact">
-            <form name="form" method="POST">
-                <div id="invis" style="display: none;"></div>
-                <div id="odiv1">
-                    <p align="left"></p>
-                    <div id="odiv2" ">
-                    <textarea id=" text" name="text" cols="20" rows="5"></textarea>
-
-                    </div>
-                    <div id="odiv3">
-                    </div>
+    <div class="interact">
+        <form name="form" method="POST">
+            <div id="invis" style="display: none;"></div>
+            <div id="odiv1">
+                <p align="left"></p>
+                <div id="odiv2" ">
+                    <textarea id="text" name="text" cols="20" rows="5" ></textarea>
 
                 </div>
-                <div>
-                    <label for="say"></label>
-                    <textarea name="say" id="say" value="" style="display: none;"></textarea>
+                <div id="odiv3">
                 </div>
-                <div>
-                    <label for="to">
-                        <Who do you want to say it to?>
-                    </label>
-                    <input name="to" id="to" value="date">
-                </div>
-                <div>
-                    <button onmouseenter="document.getElementById('say').value = table_to_array()">Send my
-                        greetings</button>
-                </div>
-            </form>
-            <input type="submit" id="btn" value="ok" onclick="showDiv1();" style="height: 2em;">
-        </div>
+                
+            </div>
+            <div>
+                <label for="say"></label>
+                <textarea name="say" id="say" value="" style="display: none;"></textarea>
+            </div>
+            <div>
+                <label for="to">
+                    <Who do you want to say it to?>
+                </label>
+                <input name="to" id="to" value="date">
+            </div>
+            <div>
+                <button onmouseenter="document.getElementById('say').value = table_to_array()">Send my
+                    greetings</button>
+            </div>
+        </form>
+        <input type="submit" id="btn" value="ok" onclick="showDiv1();">
+    </div>
     </div>
 </body>
 
