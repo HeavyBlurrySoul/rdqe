@@ -35,52 +35,74 @@
         }
 
         async function uploadFile() {
-    let formData = new FormData();           
-    formData.append("file", fileupload.files[0]);
-    await fetch('/upload', {
-      method: "POST", 
-      body: formData
-    });    
-    alert('The file has been uploaded successfully.');
-}
+            let formData = new FormData();
+            formData.append("file", fileupload.files[0]);
+            await fetch('/upload', {
+                method: "POST",
+                body: formData
+            });
+            alert('The file has been uploaded successfully.');
+        }
 
     </script>
+    <style>
+        .interact {
+            background-color: #68A7AD;
+            border: 2px solid #99C4C8;
+            border-radius: 10px;
+            width: 10em;
+            height: 10em;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 2em;
+        }
+
+        html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #E5CB9F;
+}
+
+.container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+    </style>
 </head>
 
 <body>
+    <div class="container">
+    <div class="interact">
+        <form name="form" method="POST">
+            <div id="invis" style="display: none;"></div>
+            <div id="odiv1">
+                <p align="left"></p>
+                <div id="odiv2" ">
+                    <textarea id=" text" name="text" cols="20" rows="5"></textarea>
 
-    <form name="form">
-        <div id="invis" style="display: none;"></div>
-        <div id="odiv1">
-            <p align="left"></p>
-            <div id="odiv2"><br>
-                <textarea id="text" name="text" cols="20" rows="5"></textarea>
-                </br>
+                </div>
+                <div id="odiv3">
+                </div>
+                <input type="submit" id="btn" value="ok" onclick="showDiv1();">
             </div>
-            <div id="odiv3"><br>
-                </br></div>
-            <input type="submit" id="btn" value="ok" onclick="showDiv1();">
-        </div>
-
-    </form>
-
-    <form method="POST">
-        <div>
-            <label for="say"></label>
-            <textarea name="say" id="say" value="Hiiii"></textarea>
-        </div>
-        <div>
-            <label for="to">
-                <Who do you want to say it to?>
-            </label>
-            <input name="to" id="to" value="date">
-        </div>
-        <div>
-            <button onmouseenter="document.getElementById('say').value = table_to_array()">Send my greetings</button>
-        </div>
-    </form>
-    <br>
-
+            <div>
+                <label for="say"></label>
+                <textarea name="say" id="say" value="" style="display: none;"></textarea>
+            </div>
+            <div>
+                <label for="to">
+                    <Who do you want to say it to?>
+                </label>
+                <input name="to" id="to" value="date">
+            </div>
+        </form>
+    </div>
+    </div>
 </body>
 
 </html>

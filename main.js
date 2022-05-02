@@ -46,19 +46,6 @@ app.get('/', (req, res) => {
 
 });
 
-app.get('/second', (req, res) => {
-
-    fs.readFile('./index.html', 'utf8', (err, html) => {
-
-        if (err) {
-            res.status(500).send('sorry, out of order')
-        }
-
-        res.render('second')
-    })
-
-});
-
 app.post('/', (req, res) => {
     let resArray = []
     const allRadars = ["S723E","EBBL","EBBE","GEEK","GEMB","EBFS", "EBSH", "EBEZ"]
