@@ -36,69 +36,63 @@
 
 
     </script>
-    <style>
-        .interact {
-            background-color: #68A7AD;
-            border: 2px solid #99C4C8;
-            border-radius: 10px;
-            width: 1àem;
-            height: 12em;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 2em;
-        }
-
-        html,
-body {
-  height: 100%;
-  width: 100%;
-  background-color: #E5CB9F;
-}
-
-.container {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-}
-    </style>
+    <link rel="stylesheet" href="https://cdn.concisecss.com/concise.min.css">
+    <link rel="stylesheet" href="https://cdn.concisecss.com/concise-utils/concise-utils.min.css">
 </head>
+<style>
+    html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+}
 
+</style>
 <body>
-    <div class="container">
-    <div class="interact">
+    <main grid>
+    <div container class="_mm" column="6">
+    <div style="margin: 0;
+    position: absolute;
+    width: 40em;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);">
         <form name="form" method="POST">
-            <div id="invis" style="display: none;"></div>
-            <div id="odiv1">
-                <p align="left"></p>
-                <div id="odiv2" ">
-                    <textarea id="text" name="text" cols="20" rows="5" ></textarea>
-
+            <fieldset>
+                <legend>Data</legend>
+                <div id="invis" style="display: none;"></div>
+                <div id="odiv1">
+                    <p align="left"></p>
+                    <div id="odiv2">
+                        <textarea id="text" name="text" cols="20" rows="5" ></textarea>
+    
+                    </div>
+                    <div id="odiv3">
+                    </div>
+                    
                 </div>
-                <div id="odiv3">
-                </div>
-                
-            </div>
+            
+            
             <div>
                 <label for="say"></label>
                 <textarea name="say" id="say" value="" style="display: none;"></textarea>
+                <input type="button" id="btn" value="Convert" onclick="showDiv1();alert('Conversion Done')">
             </div>
+        </fieldset>
+        <fieldset>
+            <legend>Date</legend>
             <div>
                 <label for="to">
                     <Who do you want to say it to?>
                 </label>
-                <input name="to" id="to" value="date">
+                <input name="to" id="to" value="date" placeholder="01/01/2022">
+                    <button onmouseenter="document.getElementById('say').value = table_to_array()">Submit</button>
             </div>
-            <div>
-                <button onmouseenter="document.getElementById('say').value = table_to_array()">Send my
-                    greetings</button>
-            </div>
+        </fieldset>
         </form>
-        <input type="submit" id="btn" value="ok" onclick="showDiv1();">
     </div>
     </div>
+</main>
 </body>
 
 </html>

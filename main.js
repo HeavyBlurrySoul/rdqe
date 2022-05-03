@@ -25,7 +25,7 @@ app.set('view engine', 'ejs')
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-  app.post("/upload_files", upload.array("files"), uploadFiles);
+app.post("/upload_files", upload.array("files"), uploadFiles);
 
 function uploadFiles(req, res) {
     console.log(req.body);
