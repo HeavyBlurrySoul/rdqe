@@ -70,40 +70,23 @@ app.post("/", (req, res) => {
     azim,
     stat
   ) {
-    let tempArr = [];
+    let tempArr = [
+      name,
+      req.body.to,
+      pdssr,
+      pdpsr,
+      pda,
+      pdc,
+      iva,
+      ivc,
+      fc,
+      ft,
+      mt,
+      rng,
+      azim,
+    ];
     if (stat === 1) {
-      tempArr = [
-        name,
-        req.body.to,
-        pdssr,
-        pdpsr,
-        pda,
-        pdc,
-        iva,
-        ivc,
-        fc,
-        ft,
-        mt,
-        rng,
-        azim,
-        "No Data",
-      ];
-    } else {
-      tempArr = [
-        name,
-        req.body.to,
-        pdssr,
-        pdpsr,
-        pda,
-        pdc,
-        iva,
-        ivc,
-        fc,
-        ft,
-        mt,
-        rng,
-        azim,
-      ];
+        tempArr.push("No Data");
     }
     //console.log(tempArr)
     resArray.push(tempArr);
