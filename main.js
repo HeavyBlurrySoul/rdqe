@@ -1,8 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const fs = require("fs");
-/* const {parse, Parser} = require('json2csv');
-const { timeLog } = require('console'); */
 const XLSX = require("xlsx");
 const multer = require("multer");
 const storage = multer.diskStorage({
@@ -88,7 +86,6 @@ app.post("/", (req, res) => {
     if (stat === 1) {
         tempArr.push("No Data");
     }
-    //console.log(tempArr)
     resArray.push(tempArr);
   }
   JSON.parse(req.body.say).forEach(function (item) {
@@ -235,7 +232,6 @@ app.post("/", (req, res) => {
     }
   });
 
-  //let missingRadars = allRadars.filter(x => n)
   console.log(resArray.length);
 
   let radarsRunning = [];
