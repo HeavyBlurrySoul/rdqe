@@ -234,15 +234,15 @@ app.post("/", (req, res) => {
 
   console.log(resArray.length);
 
-  let radarsRunning = [];
+  let runningRadars = [];
 
   resArray.forEach(function (item) {
-    radarsRunning.push(item[0]);
+    runningRadars.push(item[0]);
   });
 
   let missingRadars = allRadars
-    .filter((x) => !radarsRunning.includes(x))
-    .concat(radarsRunning.filter((x) => !allRadars.includes(x)));
+    .filter((x) => !runningRadars.includes(x))
+    .concat(runningRadars.filter((x) => !allRadars.includes(x)));
 
   console.log(missingRadars);
 
@@ -264,7 +264,7 @@ app.post("/", (req, res) => {
     "Rate_Multi_Trgt",
     "Range_Bias",
     "Az_Bias",
-    "Opmerkingen",
+    "Opmerkingen"
   ]);
 
   const ec = (r, c) => {
