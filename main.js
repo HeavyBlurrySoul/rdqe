@@ -3,6 +3,8 @@ const bodyParser = require("body-parser");
 const fs = require("fs");
 const XLSX = require("xlsx");
 const multer = require("multer");
+const { timeout } = require("nodemon/lib/config");
+const json = require("body-parser/lib/types/json");
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "./uploads");
@@ -282,17 +284,21 @@ app.post("/", (req, res) => {
     ws["!ref"] = XLSX.utils.encode_range(range.s, range.e);
   };
 
-  console.log(resArray);
+  let retFile = JSON.stringify(req.body.to).replace(/\//g, '').replace(/"/g, "") + "rdqe.xlsx"
+
+  console.log(retFile)
 
   const ws = XLSX.utils.json_to_sheet(resArray);
   const wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, ws, "data");
   delete_row(ws, 0);
-  XLSX.writeFile(wb, "rdqe.xlsx");
+  XLSX.writeFile(wb, retFile);
 
-  res.download("rdqe.xlsx");
+  res.download(retFile);
+    
 });
 
 app.listen(process.env.PORT || 3000, () =>
   console.log(`App available on http://localhost:3000`)
 );
+
