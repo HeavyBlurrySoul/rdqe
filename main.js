@@ -53,7 +53,7 @@ app.post("/", (req, res) => {
     "GEMB",
     "EBFS",
     "EBSH",
-    "EBEZ",
+    "LARCE",
   ];
   function createTableRow(
     name,
@@ -212,7 +212,7 @@ app.post("/", (req, res) => {
         break;
       case "EBEZ":
         console.log(item[21]);
-        item[0] = "EBEZ";
+        item[0] = "LARCE";
         createTableRow(
           item[0],
           item[2],
